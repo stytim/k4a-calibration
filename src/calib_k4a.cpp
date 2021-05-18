@@ -160,6 +160,10 @@ static FrameInfo process_capture(recording_t *file)
 
     frame.PointCloudData = point_cloud_image_data;
 
+    k4a_image_release(transformed_depth_image);
+    k4a_image_release(point_cloud_image);
+
+
     printf("%-32s", file->filename);
     for (int i = 0; i < 2; i++)
     {
