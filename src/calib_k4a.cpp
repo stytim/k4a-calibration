@@ -156,9 +156,13 @@ static FrameInfo process_capture(recording_t *file)
     {
         cout << "Failed to compute point cloud image" << endl;
     }
-    int16_t* point_cloud_image_data = (int16_t*)(void*)k4a_image_get_buffer(point_cloud_image);
-
-    frame.PointCloudData = point_cloud_image_data;
+    
+    // Copy point cloud
+    const size_t cloud_size = k4a_image_get_size(point_cloud_image);
+    const int16_t* point_cloud_image_data = \
+        reinterpret_cast<const int16_t*>( k4a_image_get_buffer(point_cloud_image) );
+    frame.PointCloudData.resize(cloud_size);
+    memcpy(frame.PointCloudData.data(), point_cloud_image_data, cloud_size );
 
     k4a_image_release(transformed_depth_image);
     k4a_image_release(point_cloud_image);

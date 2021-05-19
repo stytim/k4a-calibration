@@ -22,7 +22,7 @@ bool ExtrinsicsCalibration::GenerateFullCloudFromFrames(
     FrameInfo frame)
 {
     const int idx = frame.CameraIndex;
-    if (!frame.PointCloudData) {
+    if (!frame.PointCloudData.data()) {
         return false;
     }
     cout <<"Generating Cloud From Frames"<< endl;
@@ -33,7 +33,7 @@ bool ExtrinsicsCalibration::GenerateFullCloudFromFrames(
     full_cloud[idx]->points_.reserve(count);
     full_cloud[idx]->colors_.reserve(count);
     for (int i = 0; i < count; i += coord_stride) {
-        Eigen::Vector3d q(frame.PointCloudData[3 * i + 0] / 1000.0f, frame.PointCloudData[3 * i + 1] / 1000.0f, frame.PointCloudData[3 * i + 2] / 1000.0f);
+        Eigen::Vector3d q(frame.PointCloudData.data()[3 * i + 0] / 1000.0f, frame.PointCloudData.data()[3 * i + 1] / 1000.0f, frame.PointCloudData.data()[3 * i + 2] / 1000.0f);
         if (q.z() == 0)
         {
             continue;

@@ -72,8 +72,6 @@ struct CameraCalibration
 
 struct FrameInfo
 {
-    int16_t* PointCloudData;
-
     CameraCalibration Calibration{};
 
     // Accelerometer reading for extrinsics calibration
@@ -86,6 +84,9 @@ struct FrameInfo
     // Depth image
     std::vector<uint16_t> DepthImage;
     int DepthWidth = 0, DepthHeight = 0, DepthStride = 0;
+
+    // Point cloud data
+    std::vector<int16_t> PointCloudData;
 
     uint32_t CameraIndex;
     int FrameNumber;
