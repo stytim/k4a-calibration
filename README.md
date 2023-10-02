@@ -32,3 +32,10 @@ The final extrinsic is transformed into depth camera coordinate system and also 
 
 ## Todo
 * Test with [Teaser++](https://github.com/MIT-SPARK/TEASER-plusplus) for initial pose estimation
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=stytim/k4a-calibration&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=stytim/k4a-calibration&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=stytim/k4a-calibration&type=Date" />
+</picture>
